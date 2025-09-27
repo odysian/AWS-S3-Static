@@ -8,7 +8,7 @@ React application deployed using two different AWS approaches to test deployment
 ### Method 1: AWS Amplify (Managed)
 - **Live Site**: https://main.d2lz8aw5z334sh.amplifyapp.com/
 - **Features**: Automatic CI/CD, HTTPS, Global CDN
-- **Setup**: Connected Github repo for continuous deployment
+- **Setup**: Connected GitHub repo for continuous deployment
 
 ### Method 2: EC2 Manual Deployment
 - **Live Site**: http://3.19.246.244
@@ -28,9 +28,20 @@ React application deployed using two different AWS approaches to test deployment
 
 ## EC2 Setup Commands
 ```bash
-# Install dependencies
+
+# Install Node.js
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc
+nvm install --lts
+node --version
+
+# Install other dependencies
 sudo yum install git -y
 sudo yum install nginx -y
+
+# Start and enable nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
 
 # Clone and build
 git clone https://github.com/odysian/AWS-S3-Static.git
